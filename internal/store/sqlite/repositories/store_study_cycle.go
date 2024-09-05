@@ -21,14 +21,12 @@ func StoreStudyCycle(title string) error {
 
 	defer db.Close()
 
-	query := "INSERT INTO study_cycles (title, completed_times, selected, created_at, updated_at) VALUES (?,?,?,?,?)"
-
 	createdAt := time.Now().Local()
-	selected := true
+	selected := false
 	completedTimes := 0
 	updatedAt := time.Now().Local()
 
-	stmt, err := db.Prepare(query)
+	stmt, err := db.Prepare("INSERT INTO study_cycles (title, completed_times, selected, created_at, updated_at) VALUES (?,?,?,?,?)")
 	if err != nil {
 		return err
 	}
