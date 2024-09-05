@@ -20,6 +20,8 @@ func main() {
 		cmd.MigrateCMD()
 	case "CREATE":
 		cmd.CreateStudyCycle()
+	case "LIST":
+		cmd.ListAllStudyCycles()
 	default:
 		log.Printf("command '%s' not found.", command)
 		os.Exit(1)
