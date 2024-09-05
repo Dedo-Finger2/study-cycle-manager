@@ -22,6 +22,8 @@ func main() {
 		cmd.CreateStudyCycle()
 	case "LIST":
 		cmd.ListAllStudyCycles()
+	case "ADD":
+		cmd.AddSubject()
 	case "SELECT":
 		cmd.SelectStudyCycle()
 	default:
