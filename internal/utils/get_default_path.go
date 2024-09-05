@@ -11,7 +11,11 @@ func GetDefaultPath() (defaultPath string, err error) {
 		return
 	}
 
-	defaultPath = strings.Split(dir, "manager/")[0] + "manager/"
+	defaultPath = strings.Split(dir, "manager/")[0]
+
+	if defaultPath[len(defaultPath)-1] == '-' {
+		defaultPath = defaultPath + "manager/"
+	}
 
 	return
 }
