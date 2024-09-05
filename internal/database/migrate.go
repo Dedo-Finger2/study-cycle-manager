@@ -5,12 +5,19 @@ import (
 	"fmt"
 	"os"
 	"path"
+
+	"github.com/Dedo-Finger2/study-cycle-manager/internal/utils"
 )
 
 func Migrate(db *sql.DB) error {
 	defer db.Close()
 
-	initFileContent, err := os.ReadFile(path.Join("./", "internal", "store", "sqlite", "migrations", "init.sql"))
+	defaultPath, err := utils.GetDefaultPath()
+	if err != nil {
+		return err
+	}
+
+	initFileContent, err := os.ReadFile(path.Join(defaultPath, "internal", "store", "sqlite", "migrations", "init.sql"))
 	if err != nil {
 		return fmt.Errorf("error on trying to read database init file: %s", err.Error())
 	}
