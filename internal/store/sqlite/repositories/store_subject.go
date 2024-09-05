@@ -22,14 +22,14 @@ func StoreSubject(name string, studyCycleID, maxStudyHours int) error {
 
 	defer db.Close()
 
-	selectStmt, err := db.Prepare("SELECT id FROM study_cycle_subjects WHERE name = ?")
+	selectStmt, err := db.Prepare("SELECT id FROM study_cycle_subjects WHERE name = ? AND study_cycle_id = ?")
 	if err != nil {
 		return err
 	}
 
 	var studyCycleSubjectID int
 
-	row := selectStmt.QueryRow(name)
+	row := selectStmt.QueryRow(name, studyCycleID)
 	err = row.Scan(&studyCycleSubjectID)
 	if err != nil && !errors.Is(err, sql.ErrNoRows) {
 		return err
