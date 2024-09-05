@@ -24,6 +24,8 @@ func main() {
 		cmd.ListAllStudyCycles()
 	case "ADD":
 		cmd.AddSubject()
+	case "VIEW":
+		cmd.ViewStudyCycleProgress()
 	case "SELECT":
 		cmd.SelectStudyCycle()
 	default:
