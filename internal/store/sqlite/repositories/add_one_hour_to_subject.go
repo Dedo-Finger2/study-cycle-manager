@@ -41,14 +41,14 @@ func AddOneHourToSubject(id int) error {
 	}
 
 	row := selectStmt.QueryRow(id, currentStudyCycleID)
-	if errors.Is(row.Err(), sql.ErrNoRows) {
-		return fmt.Errorf("subject with id '%d' was not found.", id)
-	}
 	if row.Err() != nil {
 		return row.Err()
 	}
 
 	err = row.Scan(&subjectStudyHours.lastUserStudiedHours, &subjectStudyHours.maxStudyHours)
+	if errors.Is(err, sql.ErrNoRows) {
+		return fmt.Errorf("subject with id '%d' was not found.", id)
+	}
 	if err != nil {
 		return err
 	}
