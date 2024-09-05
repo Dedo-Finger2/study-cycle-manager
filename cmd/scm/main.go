@@ -18,6 +18,8 @@ func main() {
 	switch strings.ToUpper(command) {
 	case "MIGRATE":
 		cmd.MigrateCMD()
+	case "CREATE":
+		cmd.CreateStudyCycle()
 	default:
 		log.Printf("command '%s' not found.", command)
 		os.Exit(1)
