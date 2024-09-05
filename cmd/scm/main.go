@@ -22,6 +22,8 @@ func main() {
 		cmd.CreateStudyCycle()
 	case "LIST":
 		cmd.ListAllStudyCycles()
+	case "SELECT":
+		cmd.SelectStudyCycle()
 	default:
 		log.Printf("command '%s' not found.", command)
 		os.Exit(1)
