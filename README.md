@@ -18,17 +18,22 @@ O projeto consiste em uma CLI projetada para auxiliar o usuário na gestão de s
 
 Auxiliar o usuário a gerenciar um ciclo de estudos com uma aplicação via terminal.
 
-## Comandos
+## 📺 Demo
+
+https://github.com/user-attachments/assets/f8f049e6-81ad-46c9-945f-ca1f23fceee7
+
+## ⚙️ Comandos
 
 - Criar um novo ciclo de estudos: `scm create --title="Nome do ciclo de estudos"`
 - Listar todos os ciclos de estudos: `scm list`
 - Listar ciclo de estudos selecionado: `COMMING SOON`
 - Deletar ciclo de estudos: `COMMING SOON`
 - Adicionar matéria ao ciclo de estudos: `scm add --name="Nome da matéria" --max-study-hours 10`
+- Estudar uma matéria (add 1 hora): `scm study --id 1`
 - Remover matéria do ciclo de estudos: `COMMING SOON`
 - Visualizar progresso do ciclo de estudos: `scm view`
 
-## Detalhes
+## ✨ Detalhes
 
 Um ciclo de estudos é uma metodologia de organização do tempo de estudo que visa otimizar a aprendizagem e aumentar a produtividade. Em vez de seguir um cronograma rígido, o ciclo de estudos permite uma abordagem mais flexível e dinâmica. Onde você impõe um limite do quanto tem que estudar de cada matéria. Esse valor sendo representado pela flag `max-study-hours`. Se uma matéria chegar nesse valor você é obrigado a estudar outra matéria que não seja aquela até seu ciclo acabar. Garantindo assim que você estude todas as matérias necessárias.
 
