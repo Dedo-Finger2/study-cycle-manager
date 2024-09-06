@@ -26,6 +26,8 @@ func main() {
 		cmd.AddSubject()
 	case "VIEW":
 		cmd.ViewStudyCycleProgress()
+	case "UN-STUDY":
+		cmd.UnStudySubject()
 	case "STUDY":
 		cmd.StudySubject()
 	case "SELECT":
