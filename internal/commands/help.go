@@ -61,6 +61,13 @@ func Help() {
 		},
 		"migrate": {
 			Explanation: "Migrates the dabase, creating the tables.",
+			Flags: []flagSpec{
+				{
+					Flag:        "--sqlite",
+					Type:        "boolean",
+					Explanation: "sets the database to sqlite when migrating.",
+				},
+			},
 		},
 		"create-database": {
 			Explanation: "Creates the database file.",
