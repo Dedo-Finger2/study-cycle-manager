@@ -3,18 +3,12 @@ package repositories
 import (
 	"database/sql"
 	"errors"
-	"path"
 
 	"github.com/Dedo-Finger2/study-cycle-manager/internal/utils"
 )
 
 func ToggleStudyCycleSelected(id int) error {
-	defaultPath, err := utils.GetDefaultPath()
-	if err != nil {
-		return err
-	}
-
-	db, err := sql.Open("sqlite3", path.Join(defaultPath, "internal", "store", "sqlite", "database.db"))
+	db, err := utils.LocateDatabaseFile()
 	if err != nil {
 		return err
 	}

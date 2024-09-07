@@ -1,19 +1,11 @@
 package repositories
 
 import (
-	"database/sql"
-	"path"
-
 	"github.com/Dedo-Finger2/study-cycle-manager/internal/utils"
 )
 
 func AddOneToCycleSubjectsCompletedTimes() error {
-	defaultPath, err := utils.GetDefaultPath()
-	if err != nil {
-		return err
-	}
-
-	db, err := sql.Open("sqlite3", path.Join(defaultPath, "internal", "store", "sqlite", "database.db"))
+	db, err := utils.LocateDatabaseFile()
 	if err != nil {
 		return err
 	}

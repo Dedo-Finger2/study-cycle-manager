@@ -1,8 +1,6 @@
 package repositories
 
 import (
-	"database/sql"
-	"path"
 	"time"
 
 	"github.com/Dedo-Finger2/study-cycle-manager/internal/utils"
@@ -18,12 +16,7 @@ type StudyCycle struct {
 }
 
 func GetStudyCycles() (studyCycles []StudyCycle, err error) {
-	defaultPath, err := utils.GetDefaultPath()
-	if err != nil {
-		return
-	}
-
-	db, err := sql.Open("sqlite3", path.Join(defaultPath, "internal", "store", "sqlite", "database.db"))
+	db, err := utils.LocateDatabaseFile()
 	if err != nil {
 		return
 	}

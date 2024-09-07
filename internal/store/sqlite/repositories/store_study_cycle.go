@@ -1,20 +1,14 @@
 package repositories
 
 import (
-	"database/sql"
-	"path"
+	"fmt"
 	"time"
 
 	"github.com/Dedo-Finger2/study-cycle-manager/internal/utils"
 )
 
 func StoreStudyCycle(title string) error {
-	defaultPath, err := utils.GetDefaultPath()
-	if err != nil {
-		return err
-	}
-
-	db, err := sql.Open("sqlite3", path.Join(defaultPath, "internal", "store", "sqlite", "database.db"))
+	db, err := utils.LocateDatabaseFile()
 	if err != nil {
 		return err
 	}
@@ -25,6 +19,27 @@ func StoreStudyCycle(title string) error {
 	selected := false
 	completedTimes := 0
 	updatedAt := time.Now().Local()
+
+	selectStmt, err := db.Prepare(`
+		SELECT id FROM study_cycles
+		WHERE title = ?
+	`)
+	if err != nil {
+		return err
+	}
+
+	defer selectStmt.Close()
+
+	var nameAlreadyInUse int
+
+	err = selectStmt.QueryRow(title).Scan(&nameAlreadyInUse)
+	if err != nil {
+		return err
+	}
+
+	if nameAlreadyInUse != 0 {
+		return fmt.Errorf("title '%s' is already in use.", title)
+	}
 
 	stmt, err := db.Prepare("INSERT INTO study_cycles (title, completed_times, selected, created_at, updated_at) VALUES (?,?,?,?,?)")
 	if err != nil {
