@@ -35,8 +35,14 @@ func AddOneToCycleSubjectsCompletedTimes() error {
     FROM study_cycle_subjects
     WHERE study_cycle_id = ?
   `)
+	if err != nil {
+		return err
+	}
 
 	rows, err := selectStmt.Query(studyCycleID)
+	if err != nil {
+		return err
+	}
 
 	for rows.Next() {
 		var subjectCompletedTimesAndID SubjectCompletedTimesAndID = SubjectCompletedTimesAndID{}
