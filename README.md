@@ -47,11 +47,11 @@ Um ciclo de estudos é uma metodologia de organização do tempo de estudo que v
 - [x] O sistema deve listar todos os ciclos de estudos criados pelo usuário
 - [x] O sistema deve registrar os ciclos de estudos com títulos únicos
 - [x] O sistema deve permitir que o usuário selecione um dos ciclos de estudos criados
-- [ ] O sistema deve permitir a exclusão de ciclos de estudos mediante o seu ID
+- [x] O sistema deve permitir a exclusão de ciclos de estudos mediante o seu ID
 - [x] Usuários devem poder selcionar ciclos de estudos mediante seus IDs
 - [x] Usuários devem poder adicionar novas matérias aos ciclos de estudos
 - [x] O sistema deve exibir uma visão geral das matérias de um ciclo de estudos, com quadrados vázios para cada hora de estudo e preenchidos para cada hora estudada
-- [ ] Usuários devem poder remover matérias dos ciclos de estudos
+- [x] Usuários devem poder remover matérias dos ciclos de estudos
 - [x] O sistema deve registrar as horas estudadas de cada matéria do ciclo de estudos selecionado
 
 
@@ -61,7 +61,7 @@ Um ciclo de estudos é uma metodologia de organização do tempo de estudo que v
 - [ ] O projeto deve ser testado
 - [x] Deve haver um banco de dados dedicado para testes
 - [x] Deve haver uma documentação detalhada dos comandods do projeto
-- [ ] O sistema deve possuir um comando de help interno
+- [x] O sistema deve possuir um comando de help interno
 - [x] O projeto deve ser dockerizado
 - [x] O projeto deve conter um Makefile com comandos de build e clean para melhor experiência de desenvolvimento
 
@@ -69,12 +69,12 @@ Um ciclo de estudos é uma metodologia de organização do tempo de estudo que v
 ### Regras de negócio
 
 - [x] O sistema deve impedir que os usuários atualizem as horas estudadas de matérias que atingiram o limite máximo de horas estudas até o fim do ciclo
-- [ ] O usuáio deve poder reiniciar o ciclo de estudos quando todas as matérias atingirem seu limite máixmo de horas estudadas, o reset deve zerar as horas estudadas de todas as matérias
-- [ ] Ao reiniciar um ciclo de estudos o sistema deverá somar mais um na contagem de ciclos concluídos
+- [x] O usuáio deve poder reiniciar o ciclo de estudos quando todas as matérias atingirem seu limite máixmo de horas estudadas, o reset deve zerar as horas estudadas de todas as matérias
+- [x] Ao reiniciar um ciclo de estudos o sistema deverá somar mais um na contagem de ciclos concluídos
 - [x] O sistema deve atualizar somente os dados do ciclo de estudos selecionado
 - [x] O sistema deve impedir os usuários de selecionarem mais de um ciclo de estudos por vez
 - [x] O sistema deve impedir os usuários atualizarem as horas estudadas de matérias fora do ciclo de estudos selecionado
-- [ ] O sistema deve exigir que os usuários selecionem um ciclo de estudos antes de gerenciar as horas estudadas das matérias
+- [x] O sistema deve exigir que os usuários selecionem um ciclo de estudos antes de gerenciar as horas estudadas das matérias
 - [x] O sistema deve bloquear a inserção de matérias com nomes duplicados em um ciclo de estudos
 - [x] O sistema deve formatar os nomes dos ciclos de estudos e das matérias, deixando o título dos ciclos de estudos com inicial maiúscula e separado por espaços enquanto o nome das matérias totalmente em minúsculo e separado por hífens
 - [x] O sistema deve ser transparente, informando o usuário de erros que acontecerem durante a execução de tarefas
@@ -151,6 +151,7 @@ go.sum
 - Exportação do ciclo de estudos como PDF;
 - Comando de limpeza do banco de dados;
 - Comando de backup do banco de dados;
+- Sugestão de comandos quando o usuário digitar um comando errado;
 
 ## ✏️ O que eu aprendi com este projeto
 
