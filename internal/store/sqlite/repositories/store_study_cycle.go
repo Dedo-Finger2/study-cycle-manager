@@ -1,6 +1,8 @@
 package repositories
 
 import (
+	"database/sql"
+	"errors"
 	"fmt"
 	"time"
 
@@ -33,7 +35,7 @@ func StoreStudyCycle(title string) error {
 	var nameAlreadyInUse int
 
 	err = selectStmt.QueryRow(title).Scan(&nameAlreadyInUse)
-	if err != nil {
+	if err != nil && !errors.Is(err, sql.ErrNoRows) {
 		return err
 	}
 
