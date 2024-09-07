@@ -30,7 +30,12 @@ func AddOneToCycleSubjectsCompletedTimes() error {
 		CompletedTimes int
 	}
 
-	selectStmt, err := db.Prepare(`
+	tx, err := db.Begin()
+	if err != nil {
+		return err
+	}
+
+	selectStmt, err := tx.Prepare(`
     SELECT completed_times, id
     FROM study_cycle_subjects
     WHERE study_cycle_id = ?
@@ -44,6 +49,8 @@ func AddOneToCycleSubjectsCompletedTimes() error {
 		return err
 	}
 
+	defer rows.Close()
+
 	for rows.Next() {
 		var subjectCompletedTimesAndID SubjectCompletedTimesAndID = SubjectCompletedTimesAndID{}
 
@@ -52,7 +59,7 @@ func AddOneToCycleSubjectsCompletedTimes() error {
 			return err
 		}
 
-		stmt, err := db.Prepare(`
+		stmt, err := tx.Prepare(`
       UPDATE study_cycle_subjects
       SET completed_times = ?
       WHERE id = ?
@@ -60,11 +67,20 @@ func AddOneToCycleSubjectsCompletedTimes() error {
 		if err != nil {
 			return err
 		}
+		defer stmt.Close()
 
 		_, err = stmt.Exec(subjectCompletedTimesAndID.CompletedTimes+1, subjectCompletedTimesAndID.ID)
 		if err != nil {
 			return err
 		}
+	}
+
+	if err = rows.Err(); err != nil {
+		return err
+	}
+
+	if err = tx.Commit(); err != nil {
+		return err
 	}
 
 	return nil
