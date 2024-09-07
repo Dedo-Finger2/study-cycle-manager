@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"os"
 	"strings"
@@ -12,6 +13,11 @@ func main() {
 	if len(os.Args) < 2 {
 		log.Fatal("expected a command, found none.")
 	}
+
+	flag.Usage = func() {
+		cmd.Help()
+	}
+	flag.Parse()
 
 	command := os.Args[1]
 
