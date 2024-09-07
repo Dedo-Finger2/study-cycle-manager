@@ -22,6 +22,8 @@ func main() {
 	command := os.Args[1]
 
 	switch strings.ToUpper(command) {
+	case "CREATE-DATABASE":
+		cmd.CreateDatabase()
 	case "MIGRATE":
 		cmd.MigrateCMD()
 	case "CREATE":
