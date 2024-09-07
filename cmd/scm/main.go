@@ -28,6 +28,8 @@ func main() {
 		cmd.ViewStudyCycleProgress()
 	case "UN-STUDY":
 		cmd.UnStudySubject()
+	case "REMOVE":
+		cmd.RemoveSubject()
 	case "RESET":
 		cmd.ResetCycle()
 	case "STUDY":
