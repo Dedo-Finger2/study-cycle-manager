@@ -27,10 +27,10 @@ https://github.com/user-attachments/assets/f8f049e6-81ad-46c9-945f-ca1f23fceee7
 - Criar um novo ciclo de estudos: `scm create --title="Nome do ciclo de estudos"`
 - Listar todos os ciclos de estudos: `scm list`
 - Listar ciclo de estudos selecionado: `COMMING SOON`
-- Deletar ciclo de estudos: `COMMING SOON`
+- Deletar ciclo de estudos: `scm delete --id 1`
 - Adicionar matéria ao ciclo de estudos: `scm add --name="Nome da matéria" --max-study-hours 10`
 - Estudar uma matéria (add 1 hora): `scm study --id 1`
-- Remover matéria do ciclo de estudos: `COMMING SOON`
+- Remover matéria do ciclo de estudos: `scm remove --id 1`
 - Visualizar progresso do ciclo de estudos: `scm view`
 
 ## ✨ Detalhes
