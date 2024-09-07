@@ -59,6 +59,12 @@ func Help() {
 				},
 			},
 		},
+		"migrate": {
+			Explanation: "Migrates the dabase, creating the tables.",
+		},
+		"create-database": {
+			Explanation: "Creates the database file.",
+		},
 		"list": {
 			Explanation: "Returns a list of all study cycles current created.",
 		},
