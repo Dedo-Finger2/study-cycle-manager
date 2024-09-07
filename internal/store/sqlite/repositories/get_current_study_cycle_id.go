@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"database/sql"
+	"errors"
 	"path"
 
 	"github.com/Dedo-Finger2/study-cycle-manager/internal/utils"
@@ -27,6 +28,10 @@ func GetSelectedStudyCycleID() (studyCycleID int, err error) {
 	}
 
 	err = row.Scan(&studyCycleID)
+	if errors.Is(err, sql.ErrNoRows) {
+		err = errors.New("select a study cycle first.")
+		return
+	}
 	if err != nil {
 		return
 	}
