@@ -38,22 +38,38 @@ func ResetCycle() {
 
 	completed, err := repositories.CheckCycleCompleted()
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatal(err)
 	}
 
 	if completed && !*partial {
 		err = repositories.AddOneToCycleCompletedTimes()
 		if err != nil {
+			if strings.Contains(err.Error(), "no such table") {
+				log.Fatal("migrate the database first.")
+			}
+
 			log.Fatalf("error trying to add one hour to completed times in cycle: %s", err)
 		}
 
 		err = repositories.AddOneToCycleSubjectsCompletedTimes()
 		if err != nil {
+			if strings.Contains(err.Error(), "no such table") {
+				log.Fatal("migrate the database first.")
+			}
+
 			log.Fatalf("error trying to add one hour to completed times in cycle's subjects: %s", err)
 		}
 
 		err = repositories.ResetCyclesubjectsUserStudiedHours()
 		if err != nil {
+			if strings.Contains(err.Error(), "no such table") {
+				log.Fatal("migrate the database first.")
+			}
+
 			log.Fatalf("error trying to reset cycle's subjects user studied hours: %s", err)
 		}
 	} else {

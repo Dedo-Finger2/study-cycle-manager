@@ -46,6 +46,10 @@ func RemoveSubject() {
 
 	err = repositories.DeleteCycleSubject(*id)
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatal(err)
 	}
 

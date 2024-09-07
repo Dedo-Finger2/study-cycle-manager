@@ -24,6 +24,10 @@ func ListAllStudyCycles() {
 	} else {
 		studyCycles, err := repositories.GetStudyCycles()
 		if err != nil {
+			if strings.Contains(err.Error(), "no such table") {
+				log.Fatal("migrate the database first.")
+			}
+
 			log.Fatal(err)
 		}
 

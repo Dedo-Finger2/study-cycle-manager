@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/Dedo-Finger2/study-cycle-manager/internal/store/sqlite/repositories"
 )
@@ -27,6 +28,10 @@ func DeleteStudyCycle() {
 
 	err = repositories.DeleteCycle(*id)
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatal(err)
 	}
 

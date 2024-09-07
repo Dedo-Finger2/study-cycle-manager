@@ -31,11 +31,19 @@ func AddSubject() {
 
 	studyCycleID, err := repositories.GetSelectedStudyCycleID()
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatal(err)
 	}
 
 	err = repositories.StoreSubject(formattedTitle, studyCycleID, *maxStudyHours)
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatal(err)
 	}
 

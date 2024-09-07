@@ -31,6 +31,10 @@ func CreateStudyCycle() {
 
 	err = repositories.StoreStudyCycle(formattedTitle)
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatalf("error trying to save study cycle: %s", err)
 	}
 

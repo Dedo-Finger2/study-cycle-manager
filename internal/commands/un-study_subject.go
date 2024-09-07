@@ -29,6 +29,10 @@ func UnStudySubject() {
 
 	err = repositories.RemoveOneHourFromSubject(*id)
 	if err != nil {
+		if strings.Contains(err.Error(), "no such table") {
+			log.Fatal("migrate the database first.")
+		}
+
 		log.Fatal(err)
 	}
 
