@@ -37,7 +37,7 @@ https://github.com/user-attachments/assets/f8f049e6-81ad-46c9-945f-ca1f23fceee7
 
 Um ciclo de estudos é uma metodologia de organização do tempo de estudo que visa otimizar a aprendizagem e aumentar a produtividade. Em vez de seguir um cronograma rígido, o ciclo de estudos permite uma abordagem mais flexível e dinâmica. Onde você impõe um limite do quanto tem que estudar de cada matéria. Esse valor sendo representado pela flag `max-study-hours`. Se uma matéria chegar nesse valor você é obrigado a estudar outra matéria que não seja aquela até seu ciclo acabar. Garantindo assim que você estude todas as matérias necessárias.
 
-> OBS: ESTE PROJETO APENAS GERENCIAR UM CICLO DE ESTUDOS JÁ DEFINIDO! SE VOCÊ NUNCA VEZ UM, FAÇA ANTES DE USAR O SOFTWARE.
+> OBS: ESTE PROJETO APENAS GERENCIA UM CICLO DE ESTUDOS JÁ CRIADO! SE VOCÊ NÃO POSSUI UM CICLO DE ESTUDOS CONFIGURADO, FAÇA ANTES DE USAR ESTE SOFTWARE.
 
 ## ⚠️ Requisitos
 
