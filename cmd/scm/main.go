@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Dedo-Finger2/study-cycle-manager/internal/cli"
 	cmd "github.com/Dedo-Finger2/study-cycle-manager/internal/commands"
 )
 
@@ -18,6 +19,14 @@ func main() {
 		cmd.Help()
 	}
 	flag.Parse()
+
+	cli := cli.NewCli()
+
+	cli.AddCommand(&cmd.HelloWorldCMD)
+
+	cli.Run()
+
+	os.Exit(1)
 
 	command := os.Args[1]
 
